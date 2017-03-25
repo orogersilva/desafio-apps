@@ -3,12 +3,14 @@ ext {
     // VERSIONS
 
     // Libs
-    androidGradleBuildToolsVersion = '2.4.0-alpha3'
+    androidGradleBuildToolsVersion = '2.3.0'
     androidSDKVersion = '25.3.0'
 
     espressoVersion = '2.2.2'
     junitVersion = '4.12'
-    kotlinVersion = '1.1.0'
+    kotlinVersion = '1.0.6'
+    retrofitVersion = '2.2.0'
+    stethoVersion = '1.4.2'
 
     // CLASSPATH's
 
@@ -22,7 +24,10 @@ ext {
     ]
 
     def libs = [
-            kotlin: [group: 'org.jetbrains.kotlin', name: 'kotlin-stdlib', version: kotlinVersion]
+            converterGson: [group: 'com.squareup.retrofit2', name: 'converter-gson', version: retrofitVersion],
+            kotlin: [group: 'org.jetbrains.kotlin', name: 'kotlin-stdlib', version: kotlinVersion],
+            retrofit: [group: 'com.squareup.retrofit2', name: 'retrofit', version: retrofitVersion],
+            stetho: [group: 'com.facebook.stetho', name: 'stetho', version: stethoVersion]
     ]
 
     def testLibs = [
@@ -35,10 +40,17 @@ ext {
     appDependencies = [
             [configuration: 'compile', dependency: androidLibs.appCompat],
 
+            [configuration: 'compile', dependency: libs.converterGson],
             [configuration: 'androidTestCompile', dependency: testLibs.espresso,
              options: { exclude group: 'com.android.support', module: 'support-annotations' }],
             [configuration: 'testCompile', dependency: testLibs.junit],
-            [configuration: 'compile', dependency: libs.kotlin]
+            [configuration: 'compile', dependency: libs.kotlin],
+            [configuration: 'compile', dependency: libs.retrofit],
+            [configuration: 'compile', dependency: libs.stetho],
+
+            [configuration: 'androidTestCompile', dependency: testLibs.espresso,
+             options: { exclude group: 'com.android.support', module: 'support-annotations' }],
+            [configuration: 'testCompile', dependency: testLibs.junit]
     ]
 
     // PLUGINS
