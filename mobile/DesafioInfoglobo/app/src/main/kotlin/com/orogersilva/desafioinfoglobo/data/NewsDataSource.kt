@@ -20,6 +20,7 @@ interface NewsDataSource {
     // region CRUD
 
     fun getAllNews(callback: LoadNewsCallback)
+    fun saveNews(news: List<News>?)
     fun deleteAllNews(): Int
 
     // endregion

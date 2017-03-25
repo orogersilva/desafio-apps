@@ -190,6 +190,146 @@ object NewsLocalDataSource : NewsDataSource {
         }
     }
 
+    override fun saveNews(news: List<News>?) {
+
+        if (news == null) throw NullPointerException()
+
+        val db = dbHelper?.writableDatabase
+
+        val insertOnNewsTableSql = "INSERT INTO " + NewsPersistenceContract.TABLE_NAME + " (" +
+                NewsPersistenceContract.COLUMN_NAME_ID + ", " +
+                NewsPersistenceContract.COLUMN_NAME_ADVERTISING_REPORT + ", " +
+                NewsPersistenceContract.COLUMN_NAME_SUBTITLE + ", " +
+                NewsPersistenceContract.COLUMN_NAME_TEXT + ", " +
+                NewsPersistenceContract.COLUMN_NAME_UPDATED_IN + ", " +
+                NewsPersistenceContract.COLUMN_NAME_PUBLISHED_IN + ", " +
+                NewsPersistenceContract.COLUMN_NAME_SECTION_NAME + ", " +
+                NewsPersistenceContract.COLUMN_NAME_SECTION_URL + ", " +
+                NewsPersistenceContract.COLUMN_NAME_TYPE + ", " +
+                NewsPersistenceContract.COLUMN_NAME_TITLE + ", " +
+                NewsPersistenceContract.COLUMN_NAME_URL + ", " +
+                NewsPersistenceContract.COLUMN_NAME_ORIGINAL_URL +
+                ") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);"
+
+        val insertOnAuthorTableSql = "INSERT INTO " + AuthorPersistenceContract.TABLE_NAME + " (" +
+                AuthorPersistenceContract.COLUMN_NAME_NAME + ", " +
+                AuthorPersistenceContract.COLUMN_NAME_NEWS_ID +
+                ") VALUES (?, ?);"
+
+        val insertOnVideoTableSql = "INSERT INTO " + VideoPersistenceContract.TABLE_NAME + " (" +
+                VideoPersistenceContract.COLUMN_NAME_URL + ", " +
+                VideoPersistenceContract.COLUMN_NAME_NEWS_ID +
+                ") VALUES (?, ?);"
+
+        val insertOnImageTableSQl = "INSERT INTO " + ImagePersistenceContract.TABLE_NAME + " (" +
+                ImagePersistenceContract.COLUMN_NAME_AUTHOR + ", " +
+                ImagePersistenceContract.COLUMN_NAME_SOURCE + ", " +
+                ImagePersistenceContract.COLUMN_NAME_CAPTION + ", " +
+                ImagePersistenceContract.COLUMN_NAME_URL + ", " +
+                ImagePersistenceContract.COLUMN_NAME_NEWS_ID +
+                ") VALUES (?, ?, ?, ?, ?);"
+
+        try {
+
+            val newsStatement = db?.compileStatement(insertOnNewsTableSql)
+            val authorStatement = db?.compileStatement(insertOnAuthorTableSql)
+            val videoStatement = db?.compileStatement(insertOnVideoTableSql)
+            val imageStatement = db?.compileStatement(insertOnImageTableSQl)
+
+            db?.beginTransaction()
+
+            news.forEach {
+
+                // 1. Insert on "News" table.
+
+                newsStatement?.bindLong(1, it.id)
+                newsStatement?.bindLong(2, if (it.advertisingReport) 1 else 0)
+
+                if (it.subtitle == null) {
+                    newsStatement?.bindNull(3)
+                } else {
+                    newsStatement?.bindString(3, it.subtitle)
+                }
+
+                if (it.text == null) {
+                    newsStatement?.bindNull(4)
+                } else {
+                    newsStatement?.bindString(4, it.text)
+                }
+
+                newsStatement?.bindString(5, it.updatedIn)
+                newsStatement?.bindString(6, it.publishedIn)
+                newsStatement?.bindString(7, it.section.name)
+                newsStatement?.bindString(8, it.section.url)
+                newsStatement?.bindString(9, it.type)
+                newsStatement?.bindString(10, it.title)
+                newsStatement?.bindString(11, it.url)
+                newsStatement?.bindString(12, it.originalUrl)
+
+                newsStatement?.execute()
+
+                // 2. Insert on "Author" table.
+
+                if (it.authors != null) {
+
+                    for (authorName in it.authors!!) {
+
+                        authorStatement?.bindString(1, authorName)
+                        authorStatement?.bindLong(2, it.id)
+
+                        authorStatement?.execute()
+                    }
+                }
+
+                // 3. Insert on "Video" table.
+
+                if (it.videos != null) {
+
+                    for (videoUrl in it.videos!!) {
+
+                        videoStatement?.bindString(1, videoUrl)
+                        videoStatement?.bindLong(2, it.id)
+
+                        videoStatement?.execute()
+                    }
+                }
+
+                // 4. Insert on "Image" table.
+
+                if (it.images != null) {
+
+                    for (image in it.images!!) {
+
+                        imageStatement?.bindString(1, image.author)
+                        imageStatement?.bindString(2, image.source)
+                        imageStatement?.bindString(3, image.caption)
+                        imageStatement?.bindString(4, image.url)
+                        imageStatement?.bindLong(5, it.id)
+
+                        imageStatement?.execute()
+                    }
+                }
+            }
+
+            newsStatement?.close()
+            authorStatement?.close()
+            videoStatement?.close()
+            imageStatement?.close()
+
+            db?.setTransactionSuccessful()
+
+        } catch (e: Exception) {
+
+            e.printStackTrace()
+
+        } finally {
+
+            db?.endTransaction()
+        }
+
+        db?.close()
+    }
+
     override fun deleteAllNews(): Int {
 
         val db = dbHelper?.writableDatabase
