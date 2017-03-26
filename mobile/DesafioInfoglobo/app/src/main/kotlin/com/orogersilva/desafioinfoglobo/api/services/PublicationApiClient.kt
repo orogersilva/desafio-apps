@@ -7,7 +7,7 @@ import retrofit2.http.GET
 /**
  * Created by orogersilva on 3/25/2017.
  */
-interface HeadlinesApiClient {
+interface PublicationApiClient {
 
     // region ENDPOINTS
 

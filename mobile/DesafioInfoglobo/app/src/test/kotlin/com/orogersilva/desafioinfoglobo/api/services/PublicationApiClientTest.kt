@@ -2,7 +2,7 @@ package com.orogersilva.desafioinfoglobo.api.services
 
 import com.orogersilva.desafioinfoglobo.api.BaseApiClientTest
 import com.orogersilva.desafioinfoglobo.api.HttpLocalResponseDispatcher
-import com.orogersilva.desafioinfoglobo.api.RestApiClient
+import com.orogersilva.desafioinfoglobo.api.RestClient
 import com.orogersilva.desafioinfoglobo.model.Publication
 import okhttp3.mockwebserver.RecordedRequest
 import org.junit.Assert
@@ -13,7 +13,7 @@ import retrofit2.Response
 /**
  * Created by orogersilva on 3/25/2017.
  */
-class HeadlinesApiClientTest : BaseApiClientTest() {
+class PublicationApiClientTest : BaseApiClientTest() {
 
     // region TEST METHODS
 
@@ -21,12 +21,12 @@ class HeadlinesApiClientTest : BaseApiClientTest() {
 
         // ARRANGE
 
-        server?.setDispatcher(HttpLocalResponseDispatcher(loadJsonFromAsset("headlines.json")))
+        server?.setDispatcher(HttpLocalResponseDispatcher(loadJsonFromAsset("publication.json")))
         server?.start()
 
         // ACT
 
-        val response: Response<List<Publication>> = getHeadlinesApiClient().getAllNews().execute()
+        val response: Response<List<Publication>> = getPublicationApiClient().getAllNews().execute()
 
         // ASSERT
 
@@ -42,7 +42,7 @@ class HeadlinesApiClientTest : BaseApiClientTest() {
 
     // region UTILITY METHODS
 
-    private fun getHeadlinesApiClient() = RestApiClient.getApiClient(HeadlinesApiClient::class.java, getBaseEndpoint())
+    private fun getPublicationApiClient() = RestClient.getApiClient(PublicationApiClient::class.java, getBaseEndpoint())
 
     // endregion
 }

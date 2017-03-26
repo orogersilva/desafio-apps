@@ -487,7 +487,7 @@ class NewsLocalDataSourceTest {
 
         val listType = object : TypeToken<List<News>>(){}.type
 
-        val news = Gson().fromJson<List<News>>(loadJsonFromAsset("headlines.json"), listType)
+        val news = Gson().fromJson<List<News>>(loadJsonFromAsset("publication.json"), listType)
 
         return news
     }

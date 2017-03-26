@@ -7,7 +7,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 /**
  * Created by orogersilva on 3/25/2017.
  */
-object RestApiClient {
+object RestClient {
 
     // region PROPERTIES
 
