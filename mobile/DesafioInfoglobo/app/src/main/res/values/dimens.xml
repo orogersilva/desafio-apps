@@ -13,6 +13,37 @@
     <dimen name="headline_type_textview_padding">4dp</dimen>
     <dimen name="headline_type_textview_text_size">12sp</dimen>
 
+    <dimen name="news_details_authors_layout_padding_bottom">2dp</dimen>
+    <dimen name="news_details_authors_layout_padding_left">8dp</dimen>
+    <dimen name="news_details_authors_layout_padding_right">8dp</dimen>
+    <dimen name="news_details_authors_layout_padding_top">15dp</dimen>
+    <dimen name="news_details_authors_textview_padding_left">4dp</dimen>
+    <dimen name="news_details_authors_textview_text_size">12sp</dimen>
+    <dimen name="news_details_for_padding_right">4dp</dimen>
+    <dimen name="news_details_for_text_size">12sp</dimen>
+    <dimen name="news_details_image_caption_textview_margin_bottom">5dp</dimen>
+    <dimen name="news_details_image_caption_textview_margin_left">5dp</dimen>
+    <dimen name="news_details_image_caption_textview_margin_right">5dp</dimen>
+    <dimen name="news_details_image_caption_textview_text_size">9sp</dimen>
+    <dimen name="news_details_image_layout_height">220dp</dimen>
+    <dimen name="news_details_published_in_textview_padding_bottom">16dp</dimen>
+    <dimen name="news_details_published_in_textview_text_size">12sp</dimen>
+    <dimen name="news_details_subtitle_textview_padding_bottom">15dp</dimen>
+    <dimen name="news_details_subtitle_textview_padding_left">8dp</dimen>
+    <dimen name="news_details_subtitle_textview_padding_right">8dp</dimen>
+    <dimen name="news_details_subtitle_textview_padding_top">4dp</dimen>
+    <dimen name="news_details_subtitle_textview_text_size">18sp</dimen>
+    <dimen name="news_details_textview_padding_bottom">12dp</dimen>
+    <dimen name="news_details_textview_padding_left">12dp</dimen>
+    <dimen name="news_details_textview_padding_right">12dp</dimen>
+    <dimen name="news_details_textview_padding_top">34dp</dimen>
+    <dimen name="news_details_textview_text_size">16sp</dimen>
+    <dimen name="news_details_title_textview_padding_bottom">4dp</dimen>
+    <dimen name="news_details_title_textview_padding_left">8dp</dimen>
+    <dimen name="news_details_title_textview_padding_right">8dp</dimen>
+    <dimen name="news_details_title_textview_padding_top">8dp</dimen>
+    <dimen name="news_details_title_textview_text_size">30sp</dimen>
+
     <dimen name="news_imageview_height">100dp</dimen>
     <dimen name="news_imageview_margin_right">8dp</dimen>
     <dimen name="news_imageview_width">150dp</dimen>

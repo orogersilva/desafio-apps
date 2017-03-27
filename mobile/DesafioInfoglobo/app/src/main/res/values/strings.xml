@@ -1,3 +1,8 @@
 <resources>
-    <string name="app_name">Desafio Infoglobo</string>
+
+    <string name="app_name">Infoglobo Challenge</string>
+
+    <string name="for_word">For</string>
+    <string name="photo">Photo</string>
+
 </resources>
