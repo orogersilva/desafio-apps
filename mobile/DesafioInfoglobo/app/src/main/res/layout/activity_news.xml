@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:fitsSystemWindows="true"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="com.orogersilva.desafioinfoglobo.presentation.screen.news.view.NewsActivity">
+
+    <include layout="@layout/toolbar_news"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/newsRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentTop="true"
+            android:scrollbars="vertical"
+            />
+
+        <com.wang.avi.AVLoadingIndicatorView
+            android:id="@+id/loadingView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            style="@style/AVLoadingIndicatorView.Large"
+            android:visibility="visible"
+            app:indicatorName="BallPulseIndicator"
+            app:indicatorColor="@color/blue"
+            />
+
+    </RelativeLayout>
+
+</LinearLayout>

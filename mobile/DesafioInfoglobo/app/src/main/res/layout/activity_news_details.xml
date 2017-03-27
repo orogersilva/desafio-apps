@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+
+    <include layout="@layout/toolbar_news_details"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            >
+
+            <TextView
+                android:id="@+id/newsDetailsTitleTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:paddingTop="@dimen/news_details_title_textview_padding_top"
+                android:paddingLeft="@dimen/news_details_title_textview_padding_left"
+                android:paddingRight="@dimen/news_details_title_textview_padding_right"
+                android:paddingBottom="@dimen/news_details_title_textview_padding_bottom"
+                android:maxLines="4"
+                android:textAlignment="center"
+                android:textSize="@dimen/news_details_title_textview_text_size"
+                android:textStyle="bold"
+                android:textColor="@color/very_heavy_blue"
+                />
+
+            <TextView
+                android:id="@+id/newsDetailsSubtitleTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:paddingTop="@dimen/news_details_subtitle_textview_padding_top"
+                android:paddingLeft="@dimen/news_details_subtitle_textview_padding_left"
+                android:paddingRight="@dimen/news_details_subtitle_textview_padding_right"
+                android:paddingBottom="@dimen/news_details_subtitle_textview_padding_bottom"
+                android:maxLines="3"
+                android:textAlignment="center"
+                android:textSize="@dimen/news_details_subtitle_textview_text_size"
+                android:textColor="@color/heavy_blue"
+                />
+
+            <LinearLayout
+                android:id="@+id/newsDetailsAuthorsLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="@dimen/news_details_authors_layout_padding_top"
+                android:paddingLeft="@dimen/news_details_authors_layout_padding_left"
+                android:paddingRight="@dimen/news_details_authors_layout_padding_right"
+                android:paddingBottom="@dimen/news_details_authors_layout_padding_bottom"
+                android:orientation="horizontal"
+                >
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.46"
+                    android:gravity="right"
+                    android:paddingRight="@dimen/news_details_for_padding_right"
+                    android:text="@string/for_word"
+                    android:textSize="@dimen/news_details_for_text_size"
+                    android:textStyle="bold"
+                    android:textColor="@color/gray"
+                    android:textAllCaps="true"
+                    />
+
+                <TextView
+                    android:id="@+id/newsDetailsAuthorsTextView"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.54"
+                    android:gravity="left"
+                    android:paddingLeft="@dimen/news_details_authors_layout_padding_left"
+                    android:textSize="@dimen/news_details_authors_textview_text_size"
+                    android:textStyle="bold"
+                    android:textColor="@color/light_blue"
+                    android:textAllCaps="true"
+                    />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/newsDetailsPublishedInTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:paddingBottom="@dimen/news_details_published_in_textview_padding_bottom"
+                android:textSize="@dimen/news_details_published_in_textview_text_size"
+                android:textStyle="bold"
+                android:textColor="@color/gray"
+                android:textAllCaps="true"
+                />
+
+            <RelativeLayout
+                android:id="@+id/newsDetailsImageLayout"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/news_details_image_layout_height"
+                android:background="@color/gray"
+                >
+
+                <TextView
+                    android:id="@+id/newsDetailsImageCaptionTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginLeft="@dimen/news_details_image_caption_textview_margin_left"
+                    android:layout_marginRight="@dimen/news_details_image_caption_textview_margin_right"
+                    android:layout_marginBottom="@dimen/news_details_image_caption_textview_margin_bottom"
+                    android:textSize="@dimen/news_details_image_caption_textview_text_size"
+                    android:textColor="@color/white"
+                    />
+
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/newsDetailsTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="@dimen/news_details_textview_padding_top"
+                android:paddingLeft="@dimen/news_details_textview_padding_left"
+                android:paddingRight="@dimen/news_details_textview_padding_right"
+                android:paddingBottom="@dimen/news_details_textview_padding_bottom"
+                android:textSize="@dimen/news_details_textview_text_size"
+                android:textColor="@color/black"
+                />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>
