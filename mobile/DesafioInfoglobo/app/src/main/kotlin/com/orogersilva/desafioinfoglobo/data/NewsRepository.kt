@@ -48,7 +48,7 @@ object NewsRepository : NewsDataSource {
 
         if (cachedNews != null) {
 
-            callback?.onNewsLoaded(cachedNews.toImmutableMap().values.toList())
+            callback.onNewsLoaded(cachedNews.toImmutableMap().values.toList())
             return
         }
 
@@ -106,12 +106,12 @@ object NewsRepository : NewsDataSource {
                 cacheInMemory(news)
                 saveToDisk(news)
 
-                callback?.onNewsLoaded(cachedNews.toImmutableMap().values.toList())
+                callback.onNewsLoaded(cachedNews.toImmutableMap().values.toList())
             }
 
             override fun onDataNotAvailable() {
 
-                callback?.onDataNotAvailable()
+                callback.onDataNotAvailable()
             }
         })
     }

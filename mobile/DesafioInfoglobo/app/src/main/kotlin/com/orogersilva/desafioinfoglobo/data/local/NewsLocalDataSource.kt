@@ -184,9 +184,9 @@ object NewsLocalDataSource : NewsDataSource {
         db?.close()
 
         if (news.isEmpty()) {
-            callback?.onDataNotAvailable()
+            callback.onDataNotAvailable()
         } else {
-            callback?.onNewsLoaded(news)
+            callback.onNewsLoaded(news)
         }
     }
 

@@ -35,7 +35,7 @@ class PublicationApiClientTest : BaseApiClientTest() {
 
         val recordedRequest = server?.takeRequest()
 
-        assertEquals("/master/capa.json", recordedRequest?.path)
+        assertEquals("/Infoglobo/desafio-apps/master/capa.json", recordedRequest?.path)
     }
 
     // endregion

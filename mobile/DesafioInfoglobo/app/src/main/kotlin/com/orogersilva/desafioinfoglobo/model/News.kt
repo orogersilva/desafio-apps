@@ -61,11 +61,11 @@ data class News(@SerializedName("autores") var authors: List<String>? = null,
 
         other as News
 
-        return isEqual(authors, other?.authors) &&
+        return isEqual(authors, other.authors) &&
                 advertisingReport == other.advertisingReport &&
                 subtitle == other.subtitle &&
                 text == other.text &&
-                isEqual(videos, other?.videos) &&
+                isEqual(videos, other.videos) &&
                 updatedIn == other.updatedIn &&
                 id == other.id &&
                 publishedIn == other.publishedIn &&
@@ -74,7 +74,7 @@ data class News(@SerializedName("autores") var authors: List<String>? = null,
                 title == other.title &&
                 url == other.url &&
                 originalUrl == other.originalUrl &&
-                isEqual(images, other?.images)
+                isEqual(images, other.images)
     }
 
     // endregion
@@ -86,8 +86,8 @@ data class News(@SerializedName("autores") var authors: List<String>? = null,
      */
     inline private fun <reified T> isEqual(list1: List<T>?, list2: List<T>?): Boolean {
 
-        return ((list1 == null || (list1 != null && list1?.isEmpty())) &&
-                (list2 == null || (list2 != null && list2?.isEmpty()))) ||
+        return ((list1 == null || (list1 != null && list1.isEmpty())) &&
+                (list2 == null || (list2 != null && list2.isEmpty()))) ||
                 Arrays.equals(list1?.toTypedArray(), list2?.toTypedArray())
     }
 

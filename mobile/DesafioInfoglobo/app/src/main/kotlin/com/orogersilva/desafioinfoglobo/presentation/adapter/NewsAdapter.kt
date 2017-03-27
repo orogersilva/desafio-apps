@@ -145,12 +145,12 @@ class NewsAdapter(private val news: MutableList<News>,
 
         // region OVERRIDED METHODS
 
-        override fun setItem(news: News) {
+        override fun setItem(item: News) {
 
-            if (news.images != null && news.images!!.size > 0) {
+            if (item.images != null && item.images!!.size > 0) {
 
                 Glide.with(itemView.context)
-                        .load(news.images!![0].url)
+                        .load(item.images!![0].url)
                         .asBitmap()
                         .into(itemviewHeadlineLayoutTarget)
 
@@ -161,8 +161,8 @@ class NewsAdapter(private val news: MutableList<News>,
                 itemView.itemviewHeadlineLayout.background = null
             }
 
-            itemView.headlineSectionTypeTextView.text = news.section.name
-            itemView.headlineTitleTextView.text = news.title
+            itemView.headlineSectionTypeTextView.text = item.section.name
+            itemView.headlineTitleTextView.text = item.title
         }
 
         // endregion
@@ -183,12 +183,12 @@ class NewsAdapter(private val news: MutableList<News>,
 
         // region OVERRIDED METHODS
 
-        override fun setItem(news: News) {
+        override fun setItem(item: News) {
 
-            if (news.images != null && news.images!!.size > 0) {
+            if (item.images != null && item.images!!.size > 0) {
 
                 Glide.with(itemView.context)
-                        .load(news.images!![0].url)
+                        .load(item.images!![0].url)
                         .centerCrop()
                         .into(itemView.newsImageView)
 
@@ -199,8 +199,8 @@ class NewsAdapter(private val news: MutableList<News>,
                 itemView.newsImageView.setImageDrawable(null)
             }
 
-            itemView.newsSectionTypeTextView.text = news.section.name
-            itemView.newsTitleTextView.text = news.title
+            itemView.newsSectionTypeTextView.text = item.section.name
+            itemView.newsTitleTextView.text = item.title
         }
 
         // endregion
