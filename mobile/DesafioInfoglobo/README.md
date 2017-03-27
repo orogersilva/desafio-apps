@@ -1,0 +1,1 @@
+[![Build Status](https://www.bitrise.io/app/d2313a699a87b338.svg?token=mxXviIT8SxmXMUZpsNOy2A)](https://www.bitrise.io/app/d2313a699a87b338)
