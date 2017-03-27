@@ -41,7 +41,11 @@ data class News(@SerializedName("autores") var authors: List<String>? = null,
             return other.images!!.size - images!!.size
         }
 
-        return 0
+        if (images == null) {
+            return Int.MAX_VALUE
+        } else {
+            return Int.MIN_VALUE
+        }
     }
 
     override fun describeContents() = 0

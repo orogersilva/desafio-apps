@@ -120,6 +120,18 @@ class NewsAdapter(private val news: MutableList<News>,
 
     inner class HeadLineItemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView), ItemView<News> {
 
+        // region PROPERTIES
+
+        private val itemviewHeadlineLayoutTarget = object : SimpleTarget<Bitmap>(250, 250) {
+
+            override fun onResourceReady(resource: Bitmap?, glideAnimation: GlideAnimation<in Bitmap>?) {
+
+                itemView.itemviewHeadlineLayout.background = BitmapDrawable(resource)
+            }
+        }
+
+        // endregion
+
         // region INITIALIZER BLOCK
 
         init {
@@ -140,13 +152,13 @@ class NewsAdapter(private val news: MutableList<News>,
                 Glide.with(itemView.context)
                         .load(news.images!![0].url)
                         .asBitmap()
-                        .into(object : SimpleTarget<Bitmap>(250, 250) {
+                        .into(itemviewHeadlineLayoutTarget)
 
-                            override fun onResourceReady(resource: Bitmap?, glideAnimation: GlideAnimation<in Bitmap>?) {
+            } else {
 
-                                itemView.itemviewHeadlineLayout.background = BitmapDrawable(resource)
-                            }
-                        })
+                Glide.clear(itemviewHeadlineLayoutTarget)
+
+                itemView.itemviewHeadlineLayout.background = null
             }
 
             itemView.headlineSectionTypeTextView.text = news.section.name
@@ -179,6 +191,12 @@ class NewsAdapter(private val news: MutableList<News>,
                         .load(news.images!![0].url)
                         .centerCrop()
                         .into(itemView.newsImageView)
+
+            } else {
+
+                Glide.clear(itemView.newsImageView)
+
+                itemView.newsImageView.setImageDrawable(null)
             }
 
             itemView.newsSectionTypeTextView.text = news.section.name
