@@ -12,6 +12,7 @@ buildscript {
     dependencies {
 
         classpath androidBuildTools
+        classpath gradlePlayPublisher
         classpath kotlinGradlePlugin
 
         // NOTE: Do not place your application dependencies here; they belong

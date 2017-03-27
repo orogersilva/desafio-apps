@@ -32,6 +32,13 @@ android {
         }
     }
 
+    play {
+
+        serviceAccountEmail = System.getenv("SERVICE_ACCOUNT_EMAIL")
+        jsonFile = rootProject.file('play.json')
+        track = 'alpha'
+    }
+
     productFlavors {
 
         dev {

@@ -10,6 +10,7 @@ ext {
     avLoadingIndicatorViewVersion = '2.1.3'
     espressoVersion = '2.2.2'
     glideVersion = '3.7.0'
+    gradlePlayPublisherVersion = '1.1.5'
     junitVersion = '4.12'
     kotlinVersion = '1.0.6'
     mockWebServerVersion = '3.6.0'
@@ -21,6 +22,7 @@ ext {
     // CLASSPATH's
 
     androidBuildTools = "com.android.tools.build:gradle:$androidGradleBuildToolsVersion"
+    gradlePlayPublisher = "com.github.triplet.gradle:play-publisher:$gradlePlayPublisherVersion"
     kotlinGradlePlugin = "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
 
     // LIBS
@@ -78,6 +80,7 @@ ext {
 
     appPlugins = [
             'com.android.application',
+            'com.github.triplet.play',
             'kotlin-android',
             'kotlin-android-extensions',
             'kotlin-kapt'
