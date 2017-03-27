@@ -8,6 +8,7 @@ import com.orogersilva.desafioinfoglobo.domain.interactor.GetAllNewsUseCase
 import com.orogersilva.desafioinfoglobo.domain.interactor.base.AbstractUseCase
 import com.orogersilva.desafioinfoglobo.domain.interactor.base.UseCase
 import com.orogersilva.desafioinfoglobo.model.News
+import java.util.*
 
 /**
  * Created by orogersilva on 3/25/2017.
@@ -29,7 +30,12 @@ class GetAllNewsUseCaseImpl(threadExecutor: Executor,
 
             override fun onNewsLoaded(news: List<News>) {
 
-                mainThread.post(Runnable { callback.onNewsLoaded(news) })
+                mainThread.post(Runnable {
+
+                    Collections.sort(news)
+
+                    callback.onNewsLoaded(news)
+                })
             }
 
             override fun onDataNotAvailable() {

@@ -1,11 +1,15 @@
 package com.orogersilva.desafioinfoglobo.model
 
+import android.os.Parcel
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import paperparcel.PaperParcel
 import java.util.*
 
 /**
  * Created by orogersilva on 3/24/2017.
  */
+@PaperParcel
 data class News(@SerializedName("autores") var authors: List<String>? = null,
                 @SerializedName("informePublicitario") val advertisingReport: Boolean,
                 @SerializedName("subTitulo") val subtitle: String?,
@@ -19,9 +23,32 @@ data class News(@SerializedName("autores") var authors: List<String>? = null,
                 @SerializedName("titulo") val title: String,
                 @SerializedName("url") val url: String,
                 @SerializedName("urlOriginal") val originalUrl: String,
-                @SerializedName("imagens") var images: List<Image>? = null) {
+                @SerializedName("imagens") var images: List<Image>? = null) : Comparable<News>, Parcelable {
+
+    // region COMPANION OBJECT
+
+    companion object {
+        @JvmField val CREATOR = PaperParcelNews.CREATOR
+    }
+
+    // endregion
 
     // region OVERRIDED METHODS
+
+    override fun compareTo(other: News): Int {
+
+        if (images != null && other.images != null) {
+            return other.images!!.size - images!!.size
+        }
+
+        return 0
+    }
+
+    override fun describeContents() = 0
+
+    override fun writeToParcel(dest: Parcel?, flags: Int) {
+        PaperParcelNews.writeToParcel(this, dest!!, flags)
+    }
 
     override fun equals(other: Any?): Boolean {
 

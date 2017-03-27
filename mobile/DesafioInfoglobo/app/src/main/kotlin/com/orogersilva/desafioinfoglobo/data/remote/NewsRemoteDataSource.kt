@@ -31,7 +31,7 @@ object NewsRemoteDataSource : NewsDataSource {
 
         try {
 
-            response =publicationApiClient.getAllNews().execute()
+            response = publicationApiClient.getAllNews().execute()
 
         } catch (e: Exception) {
 

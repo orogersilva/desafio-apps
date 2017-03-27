@@ -5,11 +5,16 @@ ext {
     // Libs
     androidGradleBuildToolsVersion = '2.3.0'
     androidSDKVersion = '25.3.0'
+    androidSupportForGlideVersion = '19.1.0'
 
+    avLoadingIndicatorViewVersion = '2.1.3'
     espressoVersion = '2.2.2'
+    glideVersion = '3.7.0'
     junitVersion = '4.12'
     kotlinVersion = '1.0.6'
     mockWebServerVersion = '3.6.0'
+    paperParcelVersion = '2.0.0'
+    picassoVersion = '2.5.2'
     retrofitVersion = '2.2.0'
     stethoVersion = '1.4.2'
 
@@ -21,12 +26,20 @@ ext {
     // LIBS
 
     def androidLibs = [
-            appCompat: [group: 'com.android.support', name: 'appcompat-v7', version: androidSDKVersion]
+            appCompat: [group: 'com.android.support', name: 'appcompat-v7', version: androidSDKVersion],
+            androidSupportForGlide: [group: 'com.android.support', name: 'support-v4', version: androidSupportForGlideVersion]
     ]
 
     def libs = [
+            avLoadingIndicatorView: [group: 'com.wang.avi', name: 'library', version: avLoadingIndicatorViewVersion],
             converterGson: [group: 'com.squareup.retrofit2', name: 'converter-gson', version: retrofitVersion],
+            glide: [group: 'com.github.bumptech.glide', name: 'glide', version: glideVersion],
             kotlin: [group: 'org.jetbrains.kotlin', name: 'kotlin-stdlib', version: kotlinVersion],
+            paperParcel: [group: 'nz.bradcampbell', name: 'paperparcel', version: paperParcelVersion],
+            paperParcelCompiler: [group: 'nz.bradcampbell', name: 'paperparcel-compiler', version: paperParcelVersion],
+            paperParcelKotlin: [group: 'nz.bradcampbell', name: 'paperparcel-kotlin', version: paperParcelVersion],
+            picasso: [group: 'com.squareup.picasso', name: 'picasso', version: picassoVersion],
+            recyclerView: [group: 'com.android.support', name: 'recyclerview-v7', version: androidSDKVersion],
             retrofit: [group: 'com.squareup.retrofit2', name: 'retrofit', version: retrofitVersion],
             stetho: [group: 'com.facebook.stetho', name: 'stetho', version: stethoVersion]
     ]
@@ -41,12 +54,17 @@ ext {
 
     appDependencies = [
             [configuration: 'compile', dependency: androidLibs.appCompat],
+            [configuration: 'compile', dependency: androidLibs.androidSupportForGlide],
 
+            [configuration: 'compile', dependency: libs.avLoadingIndicatorView],
             [configuration: 'compile', dependency: libs.converterGson],
-            [configuration: 'androidTestCompile', dependency: testLibs.espresso,
-             options: { exclude group: 'com.android.support', module: 'support-annotations' }],
-            [configuration: 'testCompile', dependency: testLibs.junit],
+            [configuration: 'compile', dependency: libs.glide],
             [configuration: 'compile', dependency: libs.kotlin],
+            [configuration: 'compile', dependency: libs.paperParcel],
+            [configuration: 'compile', dependency: libs.paperParcelKotlin],
+            [configuration: 'kapt', dependency: libs.paperParcelCompiler],
+            [configuration: 'compile', dependency: libs.picasso],
+            [configuration: 'compile', dependency: libs.recyclerView],
             [configuration: 'compile', dependency: libs.retrofit],
             [configuration: 'compile', dependency: libs.stetho],
 
@@ -60,6 +78,8 @@ ext {
 
     appPlugins = [
             'com.android.application',
-            'kotlin-android'
+            'kotlin-android',
+            'kotlin-android-extensions',
+            'kotlin-kapt'
     ]
 }

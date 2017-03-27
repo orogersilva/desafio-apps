@@ -54,7 +54,7 @@ android {
         debug {
 
             buildConfigField "String", "INFOGLOBO_API_URL",
-                    "\"https://raw.githubusercontent.com/Infoglobo/desafio-apps/\""
+                    "\"https://raw.githubusercontent.com/\""
 
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'),
@@ -66,7 +66,7 @@ android {
         release {
 
             buildConfigField "String", "INFOGLOBO_API_URL",
-                    "\"https://raw.githubusercontent.com/Infoglobo/desafio-apps/\""
+                    "\"https://raw.githubusercontent.com/\""
 
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'),

@@ -11,7 +11,7 @@ interface PublicationApiClient {
 
     // region ENDPOINTS
 
-    @GET("master/capa.json")
+    @GET("Infoglobo/desafio-apps/master/capa.json")
     fun getAllNews(): Call<List<Publication>>
 
     // endregion

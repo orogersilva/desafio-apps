@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="headline_itemview_headline_height">250dp</dimen>
+    <dimen name="headline_text_container_padding_bottom">15dp</dimen>
+    <dimen name="headline_text_container_padding_left">15dp</dimen>
+    <dimen name="headline_text_container_padding_right">15dp</dimen>
+    <dimen name="headline_title_textview_margin_top">2dp</dimen>
+    <dimen name="headline_title_textview_padding">4dp</dimen>
+    <dimen name="headline_title_textview_text_size">24sp</dimen>
+    <dimen name="headline_type_text_view_margin_bottom">2dp</dimen>
+    <dimen name="headline_type_textview_margin_top">10dp</dimen>
+    <dimen name="headline_type_textview_padding">4dp</dimen>
+    <dimen name="headline_type_textview_text_size">12sp</dimen>
+
+    <dimen name="news_imageview_height">100dp</dimen>
+    <dimen name="news_imageview_margin_right">8dp</dimen>
+    <dimen name="news_imageview_width">150dp</dimen>
+    <dimen name="news_itemview_news_height">120dp</dimen>
+    <dimen name="news_itemview_news_padding">5dp</dimen>
+    <dimen name="news_recyclerview_margin_bottom">10dp</dimen>
+    <dimen name="news_text_container_margin_left">8dp</dimen>
+    <dimen name="news_title_textview_margin_top">1dp</dimen>
+    <dimen name="news_title_textview_padding_left">4dp</dimen>
+    <dimen name="news_title_textview_padding_right">4dp</dimen>
+    <dimen name="news_title_textview_padding_top">4dp</dimen>
+    <dimen name="news_title_textview_text_size">18sp</dimen>
+    <dimen name="news_type_textview_margin_bottom">1dp</dimen>
+    <dimen name="news_type_textview_padding_bottom">4dp</dimen>
+    <dimen name="news_type_textview_padding_left">4dp</dimen>
+    <dimen name="news_type_textview_padding_right">4dp</dimen>
+    <dimen name="news_type_textview_padding_top">8dp</dimen>
+    <dimen name="news_type_textview_text_size">12sp</dimen>
+
+    <dimen name="toolbar_news_details_text_size">22sp</dimen>
+
+</resources>
