@@ -6,10 +6,10 @@ Link para o Android app: https://play.google.com/apps/testing/com.orogersilva.de
 
 <div>
     <div class="imgContainer">
-        <img src="screenshots/infoglobo_1.jpg" width="200" height="200"/>
+        <img src="screenshots/infoglobo_1.jpg"/>
     </div>
     <div class="imgContainer">
-        <img src="screenshots/infoglobo_2.jpg" width="200" height="200"/>
+        <img src="screenshots/infoglobo_2.jpg"/>
     </div>
 </div>
 
