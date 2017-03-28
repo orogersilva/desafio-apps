@@ -6,10 +6,10 @@ Link para o Android app: https://play.google.com/apps/testing/com.orogersilva.de
 
 <div>
     <div class="imgContainer">
-        <img src="/screenshots/infoglobo_1.jpg"/>
+        <img src="screenshots/infoglobo_1.jpg" width="200" height="200"/>
     </div>
     <div class="imgContainer">
-        <img src="/screenshots/infoglobo_2.jpg"/>
+        <img src="screenshots/infoglobo_2.jpg" width="200" height="200"/>
     </div>
 </div>
 
@@ -22,10 +22,10 @@ Link para o Android app: https://play.google.com/apps/testing/com.orogersilva.de
 * Em certos casos, views aparecem em tom cinza sem preenchimento de qualquer imagem. A view poderia ter sida omitida e ter sido feito um redesign do layout para comportar somente o texto da notícia.
 * Algumas notícias não contém texto. Como alternativa, na tela de detalhes da notícia, eu embarcaria uma webview e carregaria a notícia (com seu texto) direto da URL original.
 
-* Mais sobre mim
+# Mais sobre mim
 
-Github: https://github.com/orogersilva (contém dezenas de projetos de apps produzidos por mim)
-Meu livro: https://www.casadocodigo.com.br/products/livro-entrega-continua-android
-Linkedin: https://www.linkedin.com/in/orogersilva/
-Twitter: https://twitter.com/orogersilva
-E-mail: orogersilva@gmail.com
+* Github: https://github.com/orogersilva (contém dezenas de projetos de apps produzidos por mim)
+* Meu livro: https://www.casadocodigo.com.br/products/livro-entrega-continua-android
+* Linkedin: https://www.linkedin.com/in/orogersilva/
+* Twitter: https://twitter.com/orogersilva
+* E-mail: orogersilva@gmail.com
